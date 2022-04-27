@@ -3,6 +3,7 @@ import pygame
 import random
 from src import hero
 from src import enemy
+from src import healthbars
 
 
 class Controller:
@@ -17,6 +18,8 @@ class Controller:
         pygame.key.set_repeat(1, 50)  # initialize a held keey to act as repeated key strikes
         """Load the sprites that we need"""
 
+        
+        
         self.enemies = pygame.sprite.Group()
         num_enemies = 3
         for i in range(num_enemies):
@@ -24,7 +27,12 @@ class Controller:
             y = random.randrange(100, 400)
             self.enemies.add(enemy.Enemy("Boogie", x, y, 'assets/enemy.png'))
         self.hero = hero.Hero("Conan", 50, 80, "assets/hero.png")
-        self.all_sprites = pygame.sprite.Group((self.hero,) + tuple(self.enemies))
+        
+
+        self.healthbars = pygame.sprite.Group()
+        for i in range(4):
+          self.healthbars.add(healthbars.HealthBars(f"assets/health_bars/health_bar_{i}.png", self.hero, i))
+        self.all_sprites = pygame.sprite.Group((self.hero,) + tuple(self.enemies) +tuple(self.healthbars))
         self.state = "GAME"
 
     def mainLoop(self):
@@ -61,6 +69,8 @@ class Controller:
                         self.enemies.add(e)
 
             # redraw the entire screen
+            
+            self.healthbars.update()  
             self.enemies.update()
             self.screen.blit(self.background, (0, 0))
             if(self.hero.health == 0):

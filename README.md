@@ -8,20 +8,20 @@
 Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- < Provide a short description of your program's functionality. No more than a couple sentences. >
+ Enemies move randomly throughout the window. Hero fights the enemies with random chance to win, if player loses a fight 3 times, the game is over.
 #### Unique Feature
- < Describe the unique feature you added >
+ I added a health bar that reflects the hero's current health on the top of the screen. When the hero takes damage, the health in the bar goes down. I added images in a new directory located in the 'assets' folder, which are used as the images for the healthbar sprites. 
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: 0
 
-Grace days remaining: < # >/5
+Grace days remaining: 5/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
- < What parts of the project you were not able to complete >
+ None
 
 ## REFERENCES:
- < List any outside resources used >
+ https://www.pygame.org/docs/
 
 ## MISCELLANEOUS COMMENTS:
- < Anything you would like the grader to know >
+ None
